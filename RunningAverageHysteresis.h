@@ -5,13 +5,19 @@
 
 class RunningAverageHysteresis {
  public:
-  RunningAverageHysteresis(uint8_t readings = 5, uint8_t diff = 5) : numOfReadings(readings), hysteresis(diff) {
+  RunningAverageHysteresis(uint8_t readings = 5, uint8_t diff = 3) : numOfReadings(readings), hysteresis(diff) {
     values = (uint16_t*)calloc(readings, sizeof(uint16_t));
   }
   ~RunningAverageHysteresis() { free(values); }
 
   void setHysteresis(uint8_t val) {
     hysteresis = val;
+  }
+
+  // Change the number of readings, resets the average
+  void setReadings(uint8_t val) {
+    reset();
+    numOfReadings = val;
   }
 
   void reset() {
