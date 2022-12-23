@@ -1,7 +1,7 @@
 #ifndef RUNNING_AVERAGE_
 #define RUNNING_AVERAGE_
 
-#include <cstdint>
+#include <Arduino.h>
 #include <stdlib.h>
 
 class RunningAverage {
