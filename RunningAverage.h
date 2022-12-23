@@ -1,11 +1,12 @@
 #ifndef RUNNING_AVERAGE_
 #define RUNNING_AVERAGE_
 
-#include <Arduino.h>
+#include <cstdint>
+#include <stdlib.h>
 
 class RunningAverage {
  public:
-  RunningAverage(uint8_t readings, uint8_t diff) : numOfReadings(readings), (diff) {
+  RunningAverage(uint8_t readings = 5) : numOfReadings(readings) {
     values = (uint16_t*)calloc(readings, sizeof(uint16_t));
   }
   ~RunningAverage() { free(values); }
